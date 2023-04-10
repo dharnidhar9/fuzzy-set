@@ -1,0 +1,73 @@
+//user Dharnidhar Thakur
+//program for fuzzy set using c 
+#include<stdio.h>
+#include<conio.h>
+int main(){
+    float a[15],fa[15],b[15],fb[15];
+    int i,n,j;
+    printf("Enter the no of elements: ");
+    scanf("%d",&n);
+    float am=a[0],bm=b[0];
+    printf("Enter value of X in A\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%f",&a[i]);
+    }
+    printf("Enter membership value in A\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%f",&fa[i]);
+    }
+    printf("Enter value of X in B\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%f",&b[i]);
+    }
+    printf("Enter membership value in B\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%f",&fb[i]);
+    }
+    //for Union
+    for(i=0;i<n;i++)
+    {
+        if(am<fa[i])
+        am=fa[i];
+    }
+    for(j=0;j<n;j++)
+    {
+        if(bm<fb[j])
+        bm=fb[j];
+    }
+    if(am>bm)
+    printf("union: %.1f\n, am");
+    else
+    printf("union: %.1f\n, bm");
+    
+    //for intersection
+    for(i=0;i<n;i++)
+    {
+        if(am>fa[i])
+        am=fa[i];
+    }
+    for(j=0;j<n;j++)
+    {
+        if(bm>fb[j])
+        bm=fb[j];
+    }
+    if(am>bm)
+    printf("Intersection: %.1f\n", bm);
+    else
+    printf("Intersection: %.1f\n", am);
+    
+    //for complement
+    for(i=0;i<n;i++)
+    {
+        printf("complement of A: %.1f\n", 1-fa[i]);
+    }
+    for(j=0;j<n;j++)
+    {
+        printf("complement of B: %.1f\n", 1-fb[j]);
+    }
+    
+}
